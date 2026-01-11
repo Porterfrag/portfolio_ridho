@@ -35,7 +35,7 @@
             letter-spacing: -1px;
         }
 
-        /* Elemen Serong Persona 5 */
+        /* Persona 5 Skewed Elements */
         .p5-card {
             background: var(--p5-white);
             color: var(--p5-black);
@@ -50,7 +50,7 @@
             z-index: 10;
         }
 
-        /* Integrasi Bar Navigasi */
+        /* Navbar Integration */
         .navbar {
             text-align: center;
             background: rgba(0,0,0,0.95);
@@ -68,15 +68,31 @@
             justify-content: center;
             margin: 0px 15px;
             cursor: pointer;
-            height: 60px; /* Ruang yang cukup untuk kesan jelly */
-            min-width: 80px;
+            height: 60px; 
+            min-width: 90px;
         }
 
         .link-wrapper .fallback {
-            display: none; /* Sembunyikan teks sandaran untuk menggunakan imej */
+            display: none;
         }
 
-        /* Kontainer Imej */
+        /* Centering the Jelly Effect */
+        .link-wrapper .shape-wrapper { 
+            display: none; 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 140%;
+            height: 55px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .link-wrapper:hover .shape-wrapper { 
+            display: block; 
+        }
+
         .img-wrapper {
             position: relative;
             z-index: 10;
@@ -91,23 +107,6 @@
             display: block;
             position: relative;
             z-index: 999;
-            transition: transform 0.1s;
-        }
-
-        /* Kontainer Kesan Jelly */
-        .link-wrapper .shape-wrapper { 
-            display: none; 
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .link-wrapper:hover .shape-wrapper { 
-            display: block; 
         }
 
         .link-wrapper:hover .img-wrapper img {
@@ -117,8 +116,8 @@
         .shape-wrapper .shape {
             position: absolute;
             top: 0;
-            left: -10%; /* Lebarkan sedikit ke sisi */
-            width: 120%;
+            left: 0;
+            width: 100%;
             height: 100%;
             overflow: hidden;
         }
@@ -131,7 +130,7 @@
         .shape.cyan-fill { mix-blend-mode: screen; }
         .shape.red-fill { opacity: .8; }
 
-        /* Animasi Jelly */
+        /* Jelly Animation */
         .jelly {
             animation: jelly 0.5s infinite linear;
             transform-origin: center center;
@@ -149,7 +148,7 @@
             100% { transform: scale(1.1, 0.9) skewX(10deg) rotate(-5deg); }
         }
 
-        /* Tajuk Bahagian */
+        /* Section Titles */
         .section-title {
             background: var(--p5-red);
             color: white;
@@ -187,7 +186,7 @@
             clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%);
         }
 
-        /* Kesan Garis Imbasan */
+        /* Scanline Effect */
         .scanline {
             width: 100%;
             height: 100px;
@@ -209,40 +208,40 @@
 <body>
     <div class="scanline"></div>
 
-    <!-- Navigasi -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container mx-auto flex flex-wrap justify-center items-center">
-            <!-- Tentang -->
+            <!-- Index (Home) -->
             <a class="link-wrapper" href="#tentang">
                 <div class="img-wrapper">
-                    <img src="https://i.imgur.com/H4JD35M.png" alt="Tentang">
+                    <img src="https://i.imgur.com/H4JD35M.png" alt="Index">
                 </div>
                 <div class="shape-wrapper">
                     <div class="shape red-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#FF0000" points="29.5,8.5 150.7,0 108.1,32.7 3.1,47 "/></svg></div>
                     <div class="shape cyan-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#00FFFF" points="0.3,17 125.1,0 68.8,45.6 24.3,39 "/></svg></div>
                 </div>
             </a>
-            <!-- Keterampilan -->
+            <!-- About (Skills) -->
             <a class="link-wrapper" href="#keterampilan">
                 <div class="img-wrapper">
-                    <img src="https://i.imgur.com/dEjjgFK.png" alt="Skill">
+                    <img src="https://i.imgur.com/dEjjgFK.png" alt="About">
                 </div>
                 <div class="shape-wrapper">
                     <div class="shape red-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#FF0000" points="19.5,0,110.7,0,80.1,32.7,3.1,47 "/></svg></div>
                     <div class="shape cyan-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#00FFFF" points="11,3,85.1,0 118.8,45.6,14.3,29 "/></svg></div>
                 </div>
             </a>
-            <!-- Proyek -->
+            <!-- Archive (Projects) -->
             <a class="link-wrapper" href="#proyek">
                 <div class="img-wrapper">
-                    <img src="https://i.imgur.com/sayXMqS.png" alt="Project">
+                    <img src="https://i.imgur.com/sayXMqS.png" alt="Archive">
                 </div>
                 <div class="shape-wrapper">
                     <div class="shape red-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#FF0000" points="15.5,0 70.7,0 118.1,32.7 43.1,47 "/></svg></div>
                     <div class="shape cyan-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#00FFFF" points="17.3,0 105.1,0 68.8,45.6 24.3,39 "/></svg></div>
                 </div>
             </a>
-            <!-- Sertifikasi -->
+            <!-- Credits (Certifications) -->
             <a class="link-wrapper" href="#sertifikasi">
                 <div class="img-wrapper">
                     <img src="https://i.imgur.com/rUW98fP.png" alt="Credits">
@@ -252,7 +251,7 @@
                     <div class="shape cyan-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#00FFFF" points="17.3,0 105.1,0 68.8,45.6 24.3,39 "/></svg></div>
                 </div>
             </a>
-            <!-- Kontak -->
+            <!-- Blog (Contact) -->
             <a class="link-wrapper" href="#kontak">
                 <div class="img-wrapper">
                     <img src="https://i.imgur.com/qOmAPIS.png" alt="Blog">
@@ -266,7 +265,7 @@
     </nav>
 
     <main>
-        <!-- Bahagian Hero -->
+        <!-- Hero Section -->
         <section id="tentang" class="min-h-screen flex items-center justify-center relative px-6 overflow-hidden">
             <div class="absolute inset-0 bg-red-600 opacity-10 skew-y-6 transform translate-y-1/2"></div>
             
@@ -281,19 +280,19 @@
                         <span class="bg-white text-black px-4 transform rotate-2 inline-block">RIDHO</span><br>
                         <span class="bg-red-600 text-white px-6 transform -rotate-3 inline-block">WAHYU</span>
                     </h1>
-                    <p class="text-2xl font-bold bg-black text-white p-2 inline-block skew-x-12 mb-6">WEB DEVELOPER & IT SUPPORT</p>
+                    <p class="text-2xl font-bold bg-black text-white p-2 inline-block skew-x-12 mb-6 uppercase">Web Developer & IT Support</p>
                     <p class="text-lg max-w-xl leading-relaxed mb-8 bg-white text-black p-4 border-l-8 border-red-600">
                         Saya adalah seorang IT Support & Programmer Web yang mempunyai pengalaman lebih dari 4 tahun di salah satu instansi pemerintah kabupaten banjar.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#proyek" class="p5-btn">LIHAT HEISTS</a>
-                        <a href="#kontak" class="p5-btn" style="background:white; color:black;">HUBUNGI</a>
+                        <a href="#proyek" class="p5-btn">VIEW HEISTS</a>
+                        <a href="#kontak" class="p5-btn" style="background:white; color:black;">CONTACT</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Keterampilan -->
+        <!-- Arsenal (Skills) -->
         <section id="keterampilan" class="py-24 px-6 relative bg-white text-black">
             <div class="container mx-auto">
                 <h2 class="section-title text-4xl">PHANTOM ARSENAL</h2>
@@ -343,56 +342,59 @@
             </div>
         </section>
 
-        <!-- Proyek -->
+        <!-- Mission Logs (Projects) -->
         <section id="proyek" class="py-24 px-6 bg-red-600 relative overflow-hidden">
             <div class="container mx-auto relative z-10">
-                <h2 class="section-title text-4xl" style="background: black;">LOG MISI</h2>
+                <h2 class="section-title text-4xl" style="background: black;">MISSION LOGS</h2>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
+                    <!-- Project 1 -->
                     <div class="p5-card">
                         <div class="bg-black p-1">
                             <img src="https://i.imgur.com/xLe8uQ3.png" alt="SIMPKL" class="w-full h-48 object-cover grayscale hover:grayscale-0 transition-all">
                         </div>
                         <div class="p-6">
                             <h3 class="text-3xl italic mb-2">SIMPKL SMKTAB</h3>
-                            <p class="font-bold mb-4">Sistem Informasi Praktik Kerja Lapangan SMKN 1 Sungai Tabuk</p>
+                            <p class="font-bold mb-4">Sistem Informasi Praktik Kerja Lapangan SMK Negeri 1 Sungai Tabuk</p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="bg-black text-white px-2 italic text-sm">PHP</span>
                                 <span class="bg-red-600 text-white px-2 italic text-sm">BOOTSTRAP</span>
                                 <span class="bg-black text-white px-2 italic text-sm">MYSQL</span>
                             </div>
-                            <a href="https://github.com/Porterfrag/simpkl_smktab" target="_blank" class="p5-btn w-full text-center">SEMAK FAIL</a>
+                            <a href="https://github.com/Porterfrag/simpkl_smktab" target="_blank" class="p5-btn w-full text-center">CHECK FILES</a>
                         </div>
                     </div>
 
+                    <!-- Project 2 -->
                     <div class="p5-card transform rotate-2">
                         <div class="bg-black p-1">
                             <img src="https://i.imgur.com/fBubIyz.png" alt="REMPAH" class="w-full h-48 object-cover grayscale hover:grayscale-0 transition-all">
                         </div>
                         <div class="p-6">
                             <h3 class="text-3xl italic mb-2">REMPAH POINT</h3>
-                            <p class="font-bold mb-4">Sistem Inventori dan Kasir Point of Sale</p>
+                            <p class="font-bold mb-4">Sistem Inventory dan Kasir Rempah Point</p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="bg-black text-white px-2 italic text-sm">PHP</span>
                                 <span class="bg-red-600 text-white px-2 italic text-sm">TAILWIND</span>
                                 <span class="bg-black text-white px-2 italic text-sm">MYSQL</span>
                             </div>
-                            <a href="https://github.com/Porterfrag/rempah_point" target="_blank" class="p5-btn w-full text-center">SEMAK FAIL</a>
+                            <a href="https://github.com/Porterfrag/rempah_point" target="_blank" class="p5-btn w-full text-center">CHECK FILES</a>
                         </div>
                     </div>
 
+                    <!-- Project 3 -->
                     <div class="p5-card transform -rotate-1">
                         <div class="bg-black p-1">
                             <img src="https://i.imgur.com/t0lSk7H.png" alt="SCHOOL" class="w-full h-48 object-cover grayscale hover:grayscale-0 transition-all">
                         </div>
                         <div class="p-6">
                             <h3 class="text-3xl italic mb-2">SMKN 1 ST</h3>
-                            <p class="font-bold mb-4">Laman Web Rasmi Maklumat Sekolah SMKN 1 Sungai Tabuk</p>
+                            <p class="font-bold mb-4">Website informasi sekolah SMK Negeri 1 Sungai Tabuk</p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="bg-black text-white px-2 italic text-sm">WORDPRESS</span>
                                 <span class="bg-red-600 text-white px-2 italic text-sm">SEO</span>
                             </div>
-                            <a href="https://smkn1st.sch.id/" target="_blank" class="p5-btn w-full text-center">LAWAT TAPAK</a>
+                            <a href="https://smkn1st.sch.id/" target="_blank" class="p5-btn w-full text-center">VISIT SITE</a>
                         </div>
                     </div>
                 </div>
@@ -400,54 +402,54 @@
             <div class="absolute -bottom-20 -left-20 text-black opacity-20 text-[300px] font-black leading-none pointer-events-none">★</div>
         </section>
 
-        <!-- Sertifikasi -->
+        <!-- Credentials (Certifications) -->
         <section id="sertifikasi" class="py-24 px-6 bg-black text-white">
             <div class="container mx-auto max-w-4xl">
-                <h2 class="section-title text-4xl">KREDENSIAL PENCURI</h2>
+                <h2 class="section-title text-4xl">THIEF CREDENTIALS</h2>
                 
                 <div class="space-y-8 mt-12">
                     <div class="calling-card transform -rotate-1 group hover:rotate-0 transition-all">
                         <div class="flex flex-col md:flex-row justify-between items-center">
                             <div>
-                                <h3 class="text-3xl">PEMBANGUN WEB JUNIOR</h3>
-                                <p class="text-red-600 font-bold">BNSP (Badan Nasional Sertifikasi Profesi)</p>
-                                <p class="text-sm">Diterbitkan: 20 Okt 2023</p>
+                                <h3 class="text-3xl uppercase">Junior Web Developer</h3>
+                                <p class="text-red-600 font-bold">Badan Nasional Sertifikasi Profesi (BNSP)</p>
+                                <p class="text-sm">Diterbitkan: 20 Oktober 2023</p>
                             </div>
-                            <a href="https://i.imgur.com/4nbzuWx.jpeg" target="_blank" class="p5-btn mt-4 md:mt-0">LIHAT DOK</a>
+                            <a href="https://i.imgur.com/4nbzuWx.jpeg" target="_blank" class="p5-btn mt-4 md:mt-0">VIEW DOCUMENT</a>
                         </div>
                     </div>
 
                     <div class="calling-card transform rotate-1 group hover:rotate-0 transition-all">
                         <div class="flex flex-col md:flex-row justify-between items-center">
                             <div>
-                                <h3 class="text-3xl">ADMIN RANGKAIAN JUNIOR</h3>
-                                <p class="text-red-600 font-bold">BNSP (Badan Nasional Sertifikasi Profesi)</p>
+                                <h3 class="text-3xl uppercase">Junior Network Administrator</h3>
+                                <p class="text-red-600 font-bold">Badan Nasional Sertifikasi Profesi (BNSP)</p>
                                 <p class="text-sm">Diterbitkan: 2 Mei 2023</p>
                             </div>
-                            <a href="https://i.imgur.com/ZzILQOV.jpeg" target="_blank" class="p5-btn mt-4 md:mt-0">LIHAT DOK</a>
+                            <a href="https://i.imgur.com/ZzILQOV.jpeg" target="_blank" class="p5-btn mt-4 md:mt-0">VIEW DOCUMENT</a>
                         </div>
                     </div>
 
                     <div class="calling-card transform -rotate-1 group hover:rotate-0 transition-all">
                         <div class="flex flex-col md:flex-row justify-between items-center">
                             <div>
-                                <h3 class="text-3xl">BERSIJIL CLCP</h3>
+                                <h3 class="text-3xl uppercase">CLCP CERTIFIED</h3>
                                 <p class="text-red-600 font-bold">LSK-TIK</p>
-                                <p class="text-sm">Diterbitkan: 23 Sept 2019</p>
+                                <p class="text-sm">Diterbitkan: 23 September 2019</p>
                             </div>
-                            <a href="https://i.imgur.com/afH6esg.jpeg" target="_blank" class="p5-btn mt-4 md:mt-0">LIHAT DOK</a>
+                            <a href="https://i.imgur.com/afH6esg.jpeg" target="_blank" class="p5-btn mt-4 md:mt-0">VIEW DOCUMENT</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Kontak -->
+        <!-- Contact Section -->
         <section id="kontak" class="py-32 px-6 bg-white text-black relative">
             <div class="container mx-auto text-center">
-                <h2 class="section-title text-5xl mb-12">AMBIL HATI ANDA?</h2>
-                <p class="text-2xl font-black italic max-w-2xl mx-auto mb-12 leading-tight">
-                    BERMINAT UNTUK BEKERJASAMA? SAYA TERBUKA UNTUK PERBINCANGAN PROJEK BARU.
+                <h2 class="section-title text-5xl mb-12">TAKE YOUR HEART?</h2>
+                <p class="text-2xl font-black italic max-w-2xl mx-auto mb-12 leading-tight uppercase">
+                    Saya terbuka untuk diskusi mengenai proyek baru, peluang kolaborasi, atau sekadar bertukar pikiran. Just hit me up!
                 </p>
                 
                 <div class="flex justify-center flex-wrap gap-8">
@@ -455,13 +457,19 @@
                         <div class="bg-black p-6 transform group-hover:-translate-y-4 group-hover:rotate-12 transition-all">
                             <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M22 4H2C0.9 4 0 4.9 0 6v12c0 1.1 0.9 2 2 2h20c1.1 0 2-0.9 2-2V6c0-1.1-0.9-4-2-4zM20 8l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
                         </div>
-                        <span class="font-black mt-2">EMEL</span>
+                        <span class="font-black mt-2">EMAIL</span>
                     </a>
                     <a href="https://wa.me/6281528493028" target="_blank" class="group flex flex-col items-center">
                         <div class="bg-black p-6 transform group-hover:-translate-y-4 group-hover:-rotate-12 transition-all">
                             <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.46 3.45 1.25 4.95L2.06 22l5.3-1.31c1.43.71 3 1.08 4.69 1.08h.01c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2M17.61 15.06c-.14-.07-.84-.42-.97-.46-.13-.05-.23-.07-.33.07-.1.14-.37.46-.45.56-.08.1-.17.11-.31.04-.14-.07-.58-.21-1.11-.68-.42-.36-.71-.64-.8-0.78-.08-.14 0-.21.06-.28.06-.06.14-.17.21-.25.07-.08.1-.14.14-.23.04-.09.02-.17-.01-.23-.03-.07-.33-.8-.45-1.09-.12-.29-.24-.25-.33-.25h-.3c-.1 0-.24.03-.37.17-.13.14-.49.46-.49 1.12 0 .66.5 1.3.57 1.4.07.1.99 1.52 2.4 2.11.34.14.54.22.72.28.4.13.78.11.93.07.18-.04.58-.24.66-.45.08-.21.08-.39.06-.45c-.02-.07-.12-.11-.26-.18z"/></svg>
                         </div>
                         <span class="font-black mt-2">WHATSAPP</span>
+                    </a>
+                    <a href="https://github.com/Porterfrag" target="_blank" class="group flex flex-col items-center">
+                        <div class="bg-black p-6 transform group-hover:-translate-y-4 group-hover:rotate-12 transition-all">
+                            <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.111.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.217.694.824.576 4.765-1.589 8.201-6.085 8.201-11.385 0-6.627-5.373-12-12-12z"></path></svg>
+                        </div>
+                        <span class="font-black mt-2">GITHUB</span>
                     </a>
                 </div>
             </div>
@@ -470,8 +478,8 @@
     </main>
 
     <footer class="bg-black text-white py-12 text-center border-t-4 border-red-600">
-        <p class="p5-font text-2xl">IT Support & Pembangun Web <span class="text-red-600">★</span> 2025</p>
-        <p class="text-xs opacity-50 mt-4 uppercase tracking-widest">Direka untuk Phantom Thieves of Banjarmasin</p>
+        <p class="p5-font text-2xl">IT Support & Web Developer <span class="text-red-600">★</span> 2025</p>
+        <p class="text-xs opacity-50 mt-4 uppercase tracking-widest">Designed for the Phantom Thieves</p>
     </footer>
 
     <script>
@@ -493,4 +501,3 @@
     </script>
 </body>
 </html>
-
