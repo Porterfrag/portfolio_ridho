@@ -3,300 +3,526 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Ridho Wahyu Darmawan - Web Developer & IT Support</title>
+    <title>Ridho Wahyu Darmawan - Take Your Heart</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
     <style>
-        html {
-            scroll-padding-top: 70px; 
+        :root {
+            --p5-red: #ff0000;
+            --p5-black: #000000;
+            --p5-white: #ffffff;
         }
-        .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 0.75rem;
+
+        body {
+            background-color: var(--p5-black);
+            color: var(--p5-white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(45deg, rgba(255,0,0,0.05) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255,0,0,0.05) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255,0,0,0.05) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255,0,0,0.05) 75%);
+            background-size: 100px 100px;
+        }
+
+        h1, h2, h3, .p5-font {
+            font-family: 'Passion One', cursive;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        /* Persona 5 Skewed Elements */
+        .skew-box {
+            transform: skew(-5deg);
+            transition: all 0.3s ease;
+        }
+
+        .skew-reverse {
+            transform: skew(5deg);
+        }
+
+        .p5-card {
+            background: var(--p5-white);
+            color: var(--p5-black);
+            position: relative;
+            transform: rotate(-1deg);
+            border: 4px solid var(--p5-black);
+            transition: transform 0.2s ease;
+        }
+        
+        .p5-card:hover {
+            transform: rotate(1deg) scale(1.02);
+            z-index: 10;
+        }
+
+        /* User Provided Navbar CSS Integration */
+        .navbar {
+            text-align: center;
+            background: rgba(0,0,0,0.9);
+            padding: 10px 0;
+            border-bottom: 5px solid var(--p5-red);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .link-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 0px 12px;
+            cursor: pointer;
+        }
+
+        .link-wrapper .fallback {
+            font-size: 1.2em;
+            letter-spacing: 2px;
+            opacity: 0;
+            position: relative;
+            top: 15px;
+            color: white;
+            font-family: 'Passion One';
+        }
+
+        .link-wrapper .shape-wrapper { 
+            display: none; 
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            height: 60px;
+            pointer-events: none;
+        }
+
+        .link-wrapper:hover {
+            z-index: 999;
+        }
+
+        .link-wrapper:hover .shape-wrapper { 
+            display: block; 
+            transform: rotate(-6deg);
+        }
+
+        .link-wrapper:hover .img-wrapper img {
+            animation: tiltBounce .15s ease forwards;
+            display: block;
+        }
+
+        .link-wrapper:hover .img-wrapper img.normal {
+            mix-blend-mode: darken;
+        }
+
+        .img-wrapper img {
+            width: auto;
+            height: 35px;
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            z-index: 999;
+        }
+
+        .img-wrapper img.active { display: none; }
+
+        .shape-wrapper {
+            filter: sepia(50%) saturate(3);
+        }
+
+        .shape-wrapper .shape {
+            transition: all .1s linear;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            overflow: hidden;
+        }
+
+        .shape.cyan-fill { mix-blend-mode: screen; }
+        .shape.red-fill { opacity: .8; }
+
+        .jelly {
+            animation: jelly 0.4s infinite linear;
+            transform-origin: center;
+        }
+
+        @keyframes tiltBounce {
+            0% { transform: scale(1) rotate(-7deg); }
+            50% { transform: scale(1.4) rotate(-7deg); }
+            100% { transform: scale(1.1) rotate(-7deg); }
+        }
+
+        @keyframes jelly {
+            0% { transform: scale(1.25,1) skewX(10deg) translateY(3px); }
+            50% { transform: scale(1.25,1.1) skewX(-10deg) translateY(-2px); }
+            100% { transform: scale(1.25,1) skewX(10deg) translateY(3px); }
+        }
+
+        /* Section Headings */
+        .section-title {
+            background: var(--p5-red);
+            color: white;
+            display: inline-block;
+            padding: 10px 40px;
+            transform: skew(-15deg) rotate(-2deg);
+            box-shadow: 8px 8px 0px black;
+            margin-bottom: 50px;
+        }
+
+        .p5-btn {
+            background: var(--p5-black);
+            color: white;
+            padding: 12px 24px;
+            font-family: 'Passion One';
+            font-size: 1.5rem;
+            transform: skew(-10deg);
+            border: 3px solid white;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .p5-btn:hover {
+            background: var(--p5-red);
+            border-color: var(--p5-black);
+            transform: skew(-10deg) scale(1.1);
+        }
+
+        .calling-card {
+            background: #fff;
+            color: #000;
+            padding: 20px;
+            border: 5px solid #000;
+            position: relative;
+            clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%);
+        }
+
+        .p5-red-bg { background-color: var(--p5-red); }
+
+        /* Scanning lines effect */
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 99;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: fixed;
+            bottom: 100%;
+            animation: scanline 6s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+<body>
+    <div class="scanline"></div>
 
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl sm:text-2xl font-bold text-blue-600">Ridho Wahyu Darmawan</a>
-            
-            <div class="hidden md:flex space-x-6">
-                <a href="#tentang" class="text-gray-600 hover:text-blue-600 transition-colors">Tentang</a>
-                <a href="#proyek" class="text-gray-600 hover:text-blue-600 transition-colors">Proyek</a>
-                <a href="#sertifikasi" class="text-gray-600 hover:text-blue-600 transition-colors">Sertifikasi</a>
-                <a href="#kontak" class="text-gray-600 hover:text-blue-600 transition-colors">Kontak</a>
-            </div>
-
-            <button id="menu-btn" class="md:hidden p-2 rounded-md text-gray-600 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Buka menu" aria-expanded="false">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </nav>
-
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t border-gray-100">
-            <a href="#tentang" class="block px-6 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors">Tentang</a>
-            <a href="#proyek" class="block px-6 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors">Proyek</a>
-            <a href="#sertifikasi" class="block px-6 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors">Sertifikasi</a>
-            <a href="#kontak" class="block px-6 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors">Kontak</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container mx-auto flex flex-wrap justify-center items-center gap-2">
+            <!-- Index (Tentang) -->
+            <a class="link-wrapper" href="#tentang">
+                <span class="fallback">Index</span>
+                <div class="img-wrapper">
+                    <img class="normal" src="https://i.imgur.com/H4JD35M.png">
+                </div>
+                <div class="shape-wrapper">
+                    <div class="shape red-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#FF0000" points="29.5,8.5 150.7,0 108.1,32.7 3.1,47 "/></svg></div>
+                    <div class="shape cyan-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#00FFFF" points="0.3,17 125.1,0 68.8,45.6 24.3,39 "/></svg></div>
+                </div>
+            </a>
+            <!-- About (Keterampilan) -->
+            <a class="link-wrapper" href="#keterampilan">
+                <span class="fallback">About</span>
+                <div class="img-wrapper">
+                    <img class="normal" src="https://i.imgur.com/dEjjgFK.png">
+                </div>
+                <div class="shape-wrapper">
+                    <div class="shape red-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#FF0000" points="19.5,0,110.7,0,80.1,32.7,3.1,47 "/></svg></div>
+                    <div class="shape cyan-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#00FFFF" points="11,3,85.1,0 118.8,45.6,14.3,29 "/></svg></div>
+                </div>
+            </a>
+            <!-- Archive (Proyek) -->
+            <a class="link-wrapper" href="#proyek">
+                <span class="fallback">Archive</span>
+                <div class="img-wrapper">
+                    <img class="normal" src="https://i.imgur.com/sayXMqS.png">
+                </div>
+                <div class="shape-wrapper">
+                    <div class="shape red-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#FF0000" points="15.5,0 70.7,0 118.1,32.7 43.1,47 "/></svg></div>
+                    <div class="shape cyan-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#00FFFF" points="17.3,0 105.1,0 68.8,45.6 24.3,39 "/></svg></div>
+                </div>
+            </a>
+            <!-- Creditss (Sertifikasi) -->
+            <a class="link-wrapper" href="#sertifikasi">
+                <span class="fallback">Creditss</span>
+                <div class="img-wrapper">
+                    <img class="normal" src="https://i.imgur.com/rUW98fP.png">
+                </div>
+                <div class="shape-wrapper">
+                    <div class="shape red-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#FF0000" points="15.5,0 70.7,0 118.1,32.7 43.1,47 "/></svg></div>
+                    <div class="shape cyan-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#00FFFF" points="17.3,0 105.1,0 68.8,45.6 24.3,39 "/></svg></div>
+                </div>
+            </a>
+            <!-- Blog (Kontak) -->
+            <a class="link-wrapper" href="#kontak">
+                <span class="fallback">Blog</span>
+                <div class="img-wrapper">
+                    <img class="normal" src="https://i.imgur.com/qOmAPIS.png">
+                </div>
+                <div class="shape-wrapper">
+                    <div class="shape red-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#FF0000" points="0,7.1 127.3,0 32.3,64 4.8,58.2"></svg></div>
+                    <div class="shape cyan-fill jelly"><svg viewBox="0 0 108.1 47"><polygon fill="#00FFFF" points="14,0.5 127.4,0 77.4,164 2.3,61.1 "/></svg></div>
+                </div>
+            </a>
         </div>
-    </header>
+    </nav>
 
     <main>
-        <section id="tentang" class="bg-white min-h-screen flex items-center justify-center text-center px-6 py-20">
-            <div class="max-w-3xl">
-                <img src="https://i.imgur.com/ReVzBKQ.jpeg" alt="Foto Profil Ridho Wahyu Darmawan" class="w-40 h-40 rounded-full mx-auto mb-6 shadow-lg">
-                <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">Halo, saya <span class="text-blue-600">Ridho Wahyu Darmawan</span></h1>
-                <p class="text-xl sm:text-2xl text-gray-600 mb-8">Full-Stack Web Developer & IT Support</p>
-                <p class="text-base sm:text-lg text-gray-700 mb-10 max-w-2xl mx-auto">
-                    Saya adalah seorang IT Support & Programmer Web yang mempunyai pengalaman lebih dari 4 tahun di salah satu instansi pemerintah kabupaten banjar
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#proyek" class="bg-blue-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors">Lihat Proyek Saya</a>
-                    <a href="#kontak" class="bg-gray-200 text-gray-800 font-medium px-6 py-3 rounded-lg shadow-md hover:bg-gray-300 transition-colors">Hubungi Saya</a>
+        <!-- Hero Section -->
+        <section id="tentang" class="min-h-screen flex items-center justify-center relative px-6 overflow-hidden">
+            <div class="absolute inset-0 bg-red-600 opacity-10 skew-y-6 transform translate-y-1/2"></div>
+            
+            <div class="max-w-5xl z-10 flex flex-col md:flex-row items-center gap-12">
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-red-600 skew-x-12 rotate-3 group-hover:rotate-6 transition-all"></div>
+                    <img src="https://i.imgur.com/ReVzBKQ.jpeg" alt="Ridho" class="relative w-64 h-64 md:w-80 md:h-80 object-cover border-8 border-black grayscale hover:grayscale-0 transition-all">
+                </div>
+                
+                <div class="text-left">
+                    <h1 class="text-6xl md:text-8xl mb-2 italic">
+                        <span class="bg-white text-black px-4 transform rotate-2 inline-block">RIDHO</span><br>
+                        <span class="bg-red-600 text-white px-6 transform -rotate-3 inline-block">DARMAWAN</span>
+                    </h1>
+                    <p class="text-2xl font-bold bg-black text-white p-2 inline-block skew-x-12 mb-6">WEB DEVELOPER & IT SUPPORT</p>
+                    <p class="text-lg max-w-xl leading-relaxed mb-8 bg-white text-black p-4 border-l-8 border-red-600">
+                        Saya adalah seorang IT Support & Programmer Web yang mempunyai pengalaman lebih dari 4 tahun di salah satu instansi pemerintah kabupaten banjar.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#proyek" class="p5-btn">VIEW HEISTS</a>
+                        <a href="#kontak" class="p5-btn" style="background:white; color:black;">CONTACT</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="keterampilan" class="py-20 px-6 bg-gray-50">
-            <h2 class="text-3xl font-bold text-center mb-12">Keterampilan Teknis</h2>
-            <div class="container mx-auto max-w-5xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 text-center">
+        <!-- Keterampilan -->
+        <section id="keterampilan" class="py-24 px-6 relative bg-white text-black">
+            <div class="container mx-auto">
+                <h2 class="section-title text-4xl">PHANTOM ARSENAL</h2>
                 
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center min-h-[140px]">
-                    <i class="devicon-html5-plain colored skill-icon"></i>
-                    <p class="font-semibold text-lg">HTML5</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                    <!-- Iterating through skills with P5 style -->
+                    <div class="group flex flex-col items-center p-4 transform hover:scale-110 transition-all">
+                        <div class="bg-black p-6 rotate-3 group-hover:-rotate-6 transition-all mb-4">
+                            <i class="devicon-html5-plain colored text-5xl"></i>
+                        </div>
+                        <span class="font-black italic">HTML5</span>
+                    </div>
+                    <div class="group flex flex-col items-center p-4 transform hover:scale-110 transition-all">
+                        <div class="bg-black p-6 -rotate-2 group-hover:rotate-12 transition-all mb-4">
+                            <i class="devicon-css3-plain colored text-5xl"></i>
+                        </div>
+                        <span class="font-black italic">CSS3</span>
+                    </div>
+                    <div class="group flex flex-col items-center p-4 transform hover:scale-110 transition-all">
+                        <div class="bg-black p-6 rotate-6 group-hover:-rotate-12 transition-all mb-4">
+                            <i class="devicon-javascript-plain colored text-5xl"></i>
+                        </div>
+                        <span class="font-black italic">JAVASCRIPT</span>
+                    </div>
+                    <div class="group flex flex-col items-center p-4 transform hover:scale-110 transition-all">
+                        <div class="bg-black p-6 -rotate-6 group-hover:rotate-3 transition-all mb-4">
+                            <i class="devicon-php-plain colored text-5xl"></i>
+                        </div>
+                        <span class="font-black italic">PHP</span>
+                    </div>
+                    <div class="group flex flex-col items-center p-4 transform hover:scale-110 transition-all">
+                        <div class="bg-black p-6 rotate-2 group-hover:rotate-12 transition-all mb-4">
+                            <i class="devicon-mysql-plain colored text-5xl"></i>
+                        </div>
+                        <span class="font-black italic">MYSQL</span>
+                    </div>
+                    <div class="group flex flex-col items-center p-4 transform hover:scale-110 transition-all">
+                        <div class="bg-black p-6 -rotate-12 group-hover:rotate-6 transition-all mb-4">
+                            <i class="devicon-github-original text-white text-5xl"></i>
+                        </div>
+                        <span class="font-black italic">GITHUB</span>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center min-h-[140px]">
-                    <i class="devicon-css3-plain colored skill-icon"></i>
-                    <p class="font-semibold text-lg">CSS3</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center min-h-[140px]">
-                    <i class="devicon-javascript-plain colored skill-icon"></i>
-                    <p class="font-semibold text-lg">JavaScript (ES6+)</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center min-h-[140px]">
-                <i class="devicon-php-plain colored skill-icon"></i>
-                <p class="font-semibold text-lg">PHP</p>
-                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center min-h-[140px]">
-                    <i class="devicon-bootstrap-plain colored skill-icon"></i>
-                    <p class="font-semibold text-lg">Bootstrap 5</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center min-h-[140px]">
-                    <i class="devicon-mysql-plain-wordmark colored skill-icon"></i>
-                    <p class="font-semibold text-lg">MySQL</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center min-h-[140px]">
-                    <i class="devicon-github-original skill-icon" style="color: #333;"></i>
-                    <p class="font-semibold text-lg">Git & GitHub</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center min-h-[140px]">
-                    <img src="https://images.seeklogo.com/logo-png/59/1/ngrok-api-gateway-logo-png_seeklogo-593419.png" alt="Logo Ngrok" class="w-12 h-12 mb-4">
-                    <p class="font-semibold text-lg">Ngrok</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center min-h-[140px]">
-                    <img src="https://logonoid.com/images/thumbs/mikrotik-logo.png" alt="Logo Mikrotik" class="w-12 h-12 mb-4">
-                    <p class="font-semibold text-lg">Mikrotik</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center min-h-[140px]">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg/800px-Microsoft_Office_logo_%282013%E2%80%932019%29.svg.png" alt="Logo Microsoft Office" class="w-12 h-12 mb-4">
-                    <p class="font-semibold text-lg">Microsoft Office</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center min-h-[140px]">
-                    <i class="devicon-photoshop-plain colored skill-icon"></i>
-                    <p class="font-semibold text-lg">Photoshop</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center justify-center min-h-[140px]">
-                    <i class="devicon-canva-original colored skill-icon"></i>
-                    <p class="font-semibold text-lg">Canva</p>
-                </div>
+            </div>
+            
+            <!-- Side text -->
+            <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none select-none hidden lg:block">
+                <span class="text-[150px] font-black transform -rotate-90 block">SKILLS</span>
             </div>
         </section>
 
-        <section id="proyek" class="py-20 px-6 bg-white">
-            <h2 class="text-3xl font-bold text-center mb-12">Proyek Unggulan</h2>
-            <div class="container mx-auto max-w-6xl grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Proyek -->
+        <section id="proyek" class="py-24 px-6 bg-red-600 relative overflow-hidden">
+            <div class="container mx-auto relative z-10">
+                <h2 class="section-title text-4xl" style="background: black;">MISSION LOGS</h2>
                 
-                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="https://i.imgur.com/xLe8uQ3.png" alt="Screenshot Proyek SIMPKL SMKTAB" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3">SIMPKL SMKTAB</h3>
-                        <p class="text-gray-600 mb-4">
-                            Sistem Informasi Praktik Kerja lapangan SMK Negeri 1 Sungai Tabuk
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">PHP</span>
-                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">HTML</span>
-                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
-                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Bootstrap</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">MySQL</span>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
+                    <!-- Project 1 -->
+                    <div class="p5-card">
+                        <div class="bg-black p-1">
+                            <img src="https://i.imgur.com/xLe8uQ3.png" alt="SIMPKL" class="w-full h-48 object-cover grayscale hover:grayscale-0 transition-all">
                         </div>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-blue-600 hover:underline font-medium">Live Demo</a>
-                            <a href="https://github.com/Porterfrag/simpkl_smktab" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline font-medium">Kode GitHub</a>
+                        <div class="p-6">
+                            <h3 class="text-3xl italic mb-2">SIMPKL SMKTAB</h3>
+                            <p class="font-bold mb-4">Sistem Informasi Praktik Kerja Lapangan SMKN 1 Sungai Tabuk</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-black text-white px-2 italic text-sm">PHP</span>
+                                <span class="bg-red-600 text-white px-2 italic text-sm">BOOTSTRAP</span>
+                                <span class="bg-black text-white px-2 italic text-sm">MYSQL</span>
+                            </div>
+                            <a href="https://github.com/Porterfrag/simpkl_smktab" target="_blank" class="p5-btn w-full text-center">CHECK FILES</a>
                         </div>
                     </div>
-                </div>
 
-                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="https://i.imgur.com/fBubIyz.png" alt="Screenshot Proyek REMPAH POINT" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3">REMPAH POINT</h3>
-                        <p class="text-gray-600 mb-4">
-                            Sistem Inventory dan Kasir Rempah Point
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                             <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">PHP</span>
-                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">HTML</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">MySQL</span>
-                            <span class="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm font-medium">Tailwind CSS</span>
+                    <!-- Project 2 -->
+                    <div class="p5-card transform rotate-2">
+                        <div class="bg-black p-1">
+                            <img src="https://i.imgur.com/fBubIyz.png" alt="REMPAH" class="w-full h-48 object-cover grayscale hover:grayscale-0 transition-all">
                         </div>
-                        <br>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-blue-600 hover:underline font-medium">Live Demo</a>
-                            <a href="https://github.com/Porterfrag/rempah_point" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline font-medium">Kode GitHub</a>
+                        <div class="p-6">
+                            <h3 class="text-3xl italic mb-2">REMPAH POINT</h3>
+                            <p class="font-bold mb-4">Sistem Inventory dan Kasir Point of Sale</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-black text-white px-2 italic text-sm">PHP</span>
+                                <span class="bg-red-600 text-white px-2 italic text-sm">TAILWIND</span>
+                                <span class="bg-black text-white px-2 italic text-sm">MYSQL</span>
+                            </div>
+                            <a href="https://github.com/Porterfrag/rempah_point" target="_blank" class="p5-btn w-full text-center">CHECK FILES</a>
                         </div>
                     </div>
-                </div>
 
-                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="https://i.imgur.com/t0lSk7H.png" alt="Screenshot Proyek WEBSITE SEKOLAH" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3">WEBSITE SEKOLAH SMK NEGERI 1 SUNGAI TABUK</h3>
-                        <p class="text-gray-600 mb-4">
-                            Website informasi sekolah SMK Negeri 1 Sungai Tabuk
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                             <span class="bg-sky-100 text-sky-800 px-3 py-1 rounded-full text-sm font-medium">WordPress</span>
-                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">HTML</span>
+                    <!-- Project 3 -->
+                    <div class="p5-card transform -rotate-1">
+                        <div class="bg-black p-1">
+                            <img src="https://i.imgur.com/t0lSk7H.png" alt="SCHOOL" class="w-full h-48 object-cover grayscale hover:grayscale-0 transition-all">
                         </div>
-                        <div class="flex gap-4">
-                            <a href="https://smkn1st.sch.id/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-medium">Live Demo</a>
+                        <div class="p-6">
+                            <h3 class="text-3xl italic mb-2">SMKN 1 ST</h3>
+                            <p class="font-bold mb-4">Website Official Informasi Sekolah SMKN 1 Sungai Tabuk</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-black text-white px-2 italic text-sm">WORDPRESS</span>
+                                <span class="bg-red-600 text-white px-2 italic text-sm">SEO</span>
+                            </div>
+                            <a href="https://smkn1st.sch.id/" target="_blank" class="p5-btn w-full text-center">VISIT SITE</a>
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- Decorative Star -->
+            <div class="absolute -bottom-20 -left-20 text-black opacity-20 text-[300px] font-black leading-none pointer-events-none">★</div>
         </section>
 
-        <section id="sertifikasi" class="py-20 px-6 bg-gray-50">
-            <h2 class="text-3xl font-bold text-center mb-12">Sertifikasi & Pencapaian</h2>
+        <!-- Sertifikasi -->
+        <section id="sertifikasi" class="py-24 px-6 bg-black text-white">
             <div class="container mx-auto max-w-4xl">
-                <div class="bg-white rounded-lg shadow-lg">
-                    
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 border-b border-gray-200">
-                        <div class="mb-4 sm:mb-0">
-                            <h3 class="text-xl font-semibold text-blue-700">Junior Web Developer</h3>
-                            <p class="text-gray-600 mt-1">Badan Nasional Sertifikasi Profesi (BNSP)</p>
-                            <p class="text-gray-500 text-sm mt-1">Diterbitkan: 20 Oktober 2023</p>
+                <h2 class="section-title text-4xl">THIEF CREDENTIALS</h2>
+                
+                <div class="space-y-8 mt-12">
+                    <div class="calling-card transform -rotate-1 group hover:rotate-0 transition-all">
+                        <div class="flex flex-col md:flex-row justify-between items-center">
+                            <div>
+                                <h3 class="text-3xl">JUNIOR WEB DEVELOPER</h3>
+                                <p class="text-red-600 font-bold">BNSP (Badan Nasional Sertifikasi Profesi)</p>
+                                <p class="text-sm">Issued: 20 Oct 2023</p>
+                            </div>
+                            <a href="https://i.imgur.com/4nbzuWx.jpeg" target="_blank" class="p5-btn mt-4 md:mt-0">VIEW DOC</a>
                         </div>
-                        <a href="https://i.imgur.com/4nbzuWx.jpeg" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 bg-blue-500 text-white font-medium px-5 py-2 rounded-lg hover:bg-blue-600 transition-colors">
-                            Lihat Kredensial
-                        </a>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 border-b border-gray-200">
-                        <div class="mb-4 sm:mb-0">
-                            <h3 class="text-xl font-semibold text-blue-700">Junior Netowork Administrator</h3>
-                            <p class="text-gray-600 mt-1">Badan Nasional Sertifikasi Profesi (BNSP)</p>
-                            <p class="text-gray-500 text-sm mt-1">Diterbitkan: 2 Mei 2023</p>
+                    <div class="calling-card transform rotate-1 group hover:rotate-0 transition-all">
+                        <div class="flex flex-col md:flex-row justify-between items-center">
+                            <div>
+                                <h3 class="text-3xl">JUNIOR NETWORK ADMIN</h3>
+                                <p class="text-red-600 font-bold">BNSP (Badan Nasional Sertifikasi Profesi)</p>
+                                <p class="text-sm">Issued: 2 May 2023</p>
+                            </div>
+                            <a href="https://i.imgur.com/ZzILQOV.jpeg" target="_blank" class="p5-btn mt-4 md:mt-0">VIEW DOC</a>
                         </div>
-                        <a href="https://i.imgur.com/ZzILQOV.jpeg" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 bg-blue-500 text-white font-medium px-5 py-2 rounded-lg hover:bg-blue-600 transition-colors">
-                            Lihat Kredensial
-                        </a>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6">
-                        <div class="mb-4 sm:mb-0">
-                            <h3 class="text-xl font-semibold text-blue-700">Computer Literate Certified Professional (CLCP)</h3>
-                            <p class="text-gray-600 mt-1">LSK-TIK</p>
-                            <p class="text-gray-500 text-sm mt-1">Diterbitkan: 23 September 2019</p>
+                    <div class="calling-card transform -rotate-1 group hover:rotate-0 transition-all">
+                        <div class="flex flex-col md:flex-row justify-between items-center">
+                            <div>
+                                <h3 class="text-3xl">CLCP CERTIFIED</h3>
+                                <p class="text-red-600 font-bold">LSK-TIK</p>
+                                <p class="text-sm">Issued: 23 Sept 2019</p>
+                            </div>
+                            <a href="https://i.imgur.com/afH6esg.jpeg" target="_blank" class="p5-btn mt-4 md:mt-0">VIEW DOC</a>
                         </div>
-                        <a href="https://i.imgur.com/afH6esg.jpeg" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 bg-blue-500 text-white font-medium px-5 py-2 rounded-lg hover:bg-blue-600 transition-colors">
-                            Lihat Kredensial
-                        </a>
                     </div>
-                    
                 </div>
             </div>
         </section>
 
-        <section id="kontak" class="py-20 px-6 bg-white text-center">
-            <div class="container mx-auto max-w-2xl">
-                <h2 class="text-3xl font-bold mb-6">Tertarik Bekerja Sama?</h2>
-                <p class="text-lg text-gray-700 mb-8">
-                    Saya terbuka untuk diskusi mengenai proyek baru, peluang kolaborasi, atau sekadar bertukar pikiran.
-                    Jangan ragu untuk menghubungi saya melalui platform di bawah ini.
+        <!-- Kontak -->
+        <section id="kontak" class="py-32 px-6 bg-white text-black relative">
+            <div class="container mx-auto text-center">
+                <h2 class="section-title text-5xl mb-12">TAKE YOUR HEART?</h2>
+                <p class="text-2xl font-black italic max-w-2xl mx-auto mb-12 leading-tight">
+                    TERTARIK BEKERJA SAMA? SAYA TERBUKA UNTUK DISKUSI PROYEK BARU ATAU PELUANG KOLABORASI.
                 </p>
                 
-                <div class="flex justify-center items-center gap-6 sm:gap-8">
-                    <a href="mailto:wahyuriidho@gmail.com" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 4H2C0.9 4 0 4.9 0 6v12c0 1.1 0.9 2 2 2h20c1.1 0 2-0.9 2-2V6c0-1.1-0.9-4-2-4zM20 8l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
-                        <span class="sr-only">Email</span>
+                <div class="flex justify-center flex-wrap gap-8">
+                    <a href="mailto:wahyuriidho@gmail.com" class="group flex flex-col items-center">
+                        <div class="bg-black p-6 transform group-hover:-translate-y-4 group-hover:rotate-12 transition-all">
+                            <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M22 4H2C0.9 4 0 4.9 0 6v12c0 1.1 0.9 2 2 2h20c1.1 0 2-0.9 2-2V6c0-1.1-0.9-4-2-4zM20 8l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+                        </div>
+                        <span class="font-black mt-2">EMAIL</span>
                     </a>
-                    <a href="https://wa.me/6281528493028" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 transition-colors" title="WhatsApp">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.46 3.45 1.25 4.95L2.06 22l5.3-1.31c1.43.71 3 1.08 4.69 1.08h.01c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2M17.61 15.06c-.14-.07-.84-.42-.97-.46-.13-.05-.23-.07-.33.07-.1.14-.37.46-.45.56-.08.1-.17.11-.31.04-.14-.07-.58-.21-1.11-.68-.42-.36-.71-.64-.8-0.78-.08-.14 0-.21.06-.28.06-.06.14-.17.21-.25.07-.08.1-.14.14-.23.04-.09.02-.17-.01-.23-.03-.07-.33-.8-.45-1.09-.12-.29-.24-.25-.33-.25h-.3c-.1 0-.24.03-.37.17-.13.14-.49.46-.49 1.12 0 .66.5 1.3.57 1.4.07.1.99 1.52 2.4 2.11.34.14.54.22.72.28.4.13.78.11.93.07.18-.04.58-.24.66-.45.08-.21.08-.39.06-.45c-.02-.07-.12-.11-.26-.18z"/></svg>
-                        <span class="sr-only">WhatsApp</span>
+                    <a href="https://wa.me/6281528493028" target="_blank" class="group flex flex-col items-center">
+                        <div class="bg-black p-6 transform group-hover:-translate-y-4 group-hover:-rotate-12 transition-all">
+                            <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.46 3.45 1.25 4.95L2.06 22l5.3-1.31c1.43.71 3 1.08 4.69 1.08h.01c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2M17.61 15.06c-.14-.07-.84-.42-.97-.46-.13-.05-.23-.07-.33.07-.1.14-.37.46-.45.56-.08.1-.17.11-.31.04-.14-.07-.58-.21-1.11-.68-.42-.36-.71-.64-.8-0.78-.08-.14 0-.21.06-.28.06-.06.14-.17.21-.25.07-.08.1-.14.14-.23.04-.09.02-.17-.01-.23-.03-.07-.33-.8-.45-1.09-.12-.29-.24-.25-.33-.25h-.3c-.1 0-.24.03-.37.17-.13.14-.49.46-.49 1.12 0 .66.5 1.3.57 1.4.07.1.99 1.52 2.4 2.11.34.14.54.22.72.28.4.13.78.11.93.07.18-.04.58-.24.66-.45.08-.21.08-.39.06-.45c-.02-.07-.12-.11-.26-.18z"/></svg>
+                        </div>
+                        <span class="font-black mt-2">WHATSAPP</span>
                     </a>
-                    <a href="https://github.com/Porterfrag" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 transition-colors" title="GitHub">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.111.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.217.694.824.576 4.765-1.589 8.201-6.085 8.201-11.385 0-6.627-5.373-12-12-12z"></path></svg>
-                        <span class="sr-only">GitHub</span>
+                    <a href="https://github.com/Porterfrag" target="_blank" class="group flex flex-col items-center">
+                        <div class="bg-black p-6 transform group-hover:-translate-y-4 group-hover:rotate-12 transition-all">
+                            <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.111.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.217.694.824.576 4.765-1.589 8.201-6.085 8.201-11.385 0-6.627-5.373-12-12-12z"></path></svg>
+                        </div>
+                        <span class="font-black mt-2">GITHUB</span>
                     </a>
                 </div>
             </div>
+            
+            <!-- Bottom decorative line -->
+            <div class="absolute bottom-0 left-0 w-full h-10 bg-black skew-y-1 origin-left"></div>
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-gray-300 py-8 text-center px-4">
-        <p>&copy; 2025 Ridho Wahyu Darmawan. Dibuat dengan ❤️ dan Tailwind CSS.</p>
+    <footer class="bg-black text-white py-12 text-center border-t-4 border-red-600">
+        <p class="p5-font text-2xl">IT Support & Web Developer <span class="text-red-600">★</span> 2025</p>
+        <p class="text-xs opacity-50 mt-4 uppercase tracking-widest">Designed for the Phantom Thieves of Banjarmasin</p>
     </footer>
 
     <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuLinks = mobileMenu.getElementsByTagName('a');
-        const hamburgerIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>`;
-        const closeIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>`;
+        // Smooth scroll adjustment for sticky nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                const navHeight = document.querySelector('.navbar').offsetHeight;
 
-        menuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.toggle('hidden');
-            const iconSvg = menuBtn.querySelector('svg');
-            
-            if (isHidden) {
-                iconSvg.innerHTML = hamburgerIcon;
-                menuBtn.setAttribute('aria-expanded', 'false');
-            } else {
-                iconSvg.innerHTML = closeIcon;
-                menuBtn.setAttribute('aria-expanded', 'true');
-            }
-        });
-
-        for (let link of menuLinks) {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuBtn.querySelector('svg').innerHTML = hamburgerIcon;
-                menuBtn.setAttribute('aria-expanded', 'false');
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - navHeight,
+                        behavior: 'smooth'
+                    });
+                }
             });
-        }
+        });
     </script>
-
 </body>
-
 </html>
-
-
-
